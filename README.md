@@ -1,22 +1,22 @@
-# Node.js PostgreSQL CRUD example with Express Rest APIs
+# Exemplo de CRUD PostgreSQL Node.js com APIs Express Rest
 
-Full Article with implementation:
+Artigo completo com implementação:
 > [Node.js PostgreSQL CRUD example with Express Rest APIs](https://www.bezkoder.com/node-express-sequelize-postgresql/)
 
-We will build Rest Apis that can create, retrieve, update, delete and find Tutorials by title.
+Construiremos Rest Apis que podem criar, recuperar, atualizar, excluir e encontrar tutoriais por título.
 
-The following table shows overview of the Rest APIs that will be exported:
+A tabela a seguir mostra a visão geral das APIs Rest que serão exportadas:
 
-- GET     `api/tutorials`	            get all Tutorials
-- GET     `api/tutorials/:id`         get Tutorial by id
-- POST    `api/tutorials`             add new Tutorial
-- PUT     `api/tutorials/:id`         update Tutorial by id
-- DELETE  `api/tutorials/:id`         remove Tutorial by id
-- DELETE  `api/tutorials`             remove all Tutorials
-- GET     `api/tutorials/published`   find all published Tutorials
-- GET     `api/tutorials?title=[kw]`  find all Tutorials which title contains 'kw'
+- GET     `api/tutorials`	            Todos os tutoriais
+- GET     `api/tutorials/:id`         Obter tutorial por id
+- POST    `api/tutorials`             Adiciona novo tutorial
+- PUT     `api/tutorials/:id`         Update Tutorial por id
+- DELETE  `api/tutorials/:id`         Remove Tutorial por id
+- DELETE  `api/tutorials`             Remove todos Tutoriais
+- GET     `api/tutorials/published`   Encontre todos os tutoriais publicados
+- GET     `api/tutorials?title=[kw]`  Encontre todos os tutoriais cujo título contenha 'kw'
 
-Front-end that works well with this Back-end
+Front-end que funciona bem com este Back-end
 > [Axios Client](https://www.bezkoder.com/axios-request/)
 
 > [Angular 8](https://www.bezkoder.com/angular-crud-app/) / [Angular 10](https://www.bezkoder.com/angular-10-crud-app/) / [Angular 11](https://www.bezkoder.com/angular-11-crud-app/) / [Angular 12](https://www.bezkoder.com/angular-12-crud-app/) / [Angular 13](https://www.bezkoder.com/angular-13-crud-example/) / [Angular 14](https://www.bezkoder.com/angular-14-crud-example/) / [Angular 15](https://www.bezkoder.com/angular-15-crud-example/) / [Angular 16](https://www.bezkoder.com/angular-16-crud-example/)
@@ -25,21 +25,21 @@ Front-end that works well with this Back-end
 
 > [React Client](https://www.bezkoder.com/react-crud-web-api/) / [React Redux Client](https://www.bezkoder.com/react-redux-crud-example/)
 
-## Demo Video
-This is our Node.js PostgreSQL CRUD example using Express & Sequelize application demo, test Rest Apis with Postman.
+## Vídeo de demonstração
+Este é nosso exemplo Node.js PostgreSQL CRUD usando demonstração do aplicativo Express & Sequelize, teste Rest API's com Postman.
 
 [![Node.js PostgreSQL CRUD example Github](http://img.youtube.com/vi/x1pZHN_sjGk/0.jpg)](http://www.youtube.com/watch?v=x1pZHN_sjGk "Node.js PostgreSQL CRUD example Github")
 
-### Test the APIs
+### Teste as APIs
 Run our Node.js application with command: `node server.js`.
 
-Using Postman, we're gonna test all the Apis above.
+Usando o Postman, vamos testar todas as Apis acima.
 
-- Create a new Tutorial using `POST /tutorials` Api
+- Crie um novo tutorial usando `POST /tutorials` Api
 
 ![node-js-postgresql-crud-example-create](https://dev-to-uploads.s3.amazonaws.com/i/hqvz8ra9p21z927iwzph.png)
 
-After creating some new Tutorials, you can check PostgreSQL table:
+Depois de criar alguns novos tutoriais, você pode verificar a tabela PostgreSQL:
 ```testdb=# select * from tutorials;
  id |    title    |    description    | published |         createdAt          |         updatedAt
 ----+-------------+-------------------+-----------+----------------------------+----------------------------
@@ -50,19 +50,19 @@ After creating some new Tutorials, you can check PostgreSQL table:
   5 | Js Tut #5   | Tut#5 Desc        | f         | 2020-01-29 10:45:44.289+07 | 2020-01-29 10:45:44.289+07
 ```
 
-- Retrieve all Tutorials using `GET /tutorials` Api
+- Recuperar todos os tutoriais usando `GET /tutorials` Api
 
 ![node-js-postgresql-crud-example-retrieve-all](https://dev-to-uploads.s3.amazonaws.com/i/m9razjm1njgww58er3as.png)
 
-- Retrieve a single Tutorial by id using `GET /tutorials/:id` Api
+- Recuperar um único tutorial por id usando `GET /tutorials/:id` Api
 
 ![node-js-postgresql-crud-example-retrieve-one](https://dev-to-uploads.s3.amazonaws.com/i/0kuojvc596i5u423od2b.png)
 
-- Update a Tutorial using `PUT /tutorials/:id` Api
+- Atualizar um tutorial usando `PUT /tutorials/:id` Api
 
 ![node-js-postgresql-crud-example-update](https://dev-to-uploads.s3.amazonaws.com/i/3buqfz0by0lu2z4kf3uq.png)
 
-Check `tutorials` table after some rows were updated:
+Verifique `tutorials` tabela depois que algumas linhas foram atualizadas:
 ```testdb=# select * from tutorials;
  id |     title      |    description    | published |         createdAt          |         updatedAt
 ----+----------------+-------------------+-----------+----------------------------+----------------------------
@@ -73,15 +73,15 @@ Check `tutorials` table after some rows were updated:
   5 | Js Tut #5      | Tut#5 Desc        | t         | 2020-01-29 10:45:44.289+07 | 2020-01-29 10:54:20.544+07
 ```
 
-- Find all Tutorials which title contains 'js': `GET /tutorials?title=js`
+- Encontre todos os tutoriais cujo título contém 'js': `GET /tutorials?title=js`
 
 ![node-js-postgresql-crud-example-search](https://dev-to-uploads.s3.amazonaws.com/i/u2hbmz5r35o7uo09y3z5.png)
 
-- Find all published Tutorials using `GET /tutorials/published` Api
+- Encontre todos os tutoriais publicados usando `GET /tutorials/published` Api
 
 ![node-js-postgresql-crud-example-search-status](https://dev-to-uploads.s3.amazonaws.com/i/dbo753wfqibt0b93d82d.png)
 
-- Delete a Tutorial using `DELETE /tutorials/:id` Api
+- Excluir um tutorial usando `DELETE /tutorials/:id` Api
 
 ![node-js-postgresql-crud-example-delete-one](https://dev-to-uploads.s3.amazonaws.com/i/pyos3wq4tchb8ixuyj1c.png)
 
@@ -95,25 +95,25 @@ Tutorial with id=4 was removed from `tutorials` table:
   5 | Js Tut #5      | Tut#5 Desc        | t         | 2020-01-29 10:45:44.289+07 | 2020-01-29 10:54:20.544+07
 ```
 
-- Delete all Tutorials using `DELETE /tutorials` Api
+- Exclua todos os tutoriais usando `DELETE /tutorials` Api
 
 ![node-js-postgresql-crud-example-delete-all](https://dev-to-uploads.s3.amazonaws.com/i/ga42747jorssl20ywyug.png)
 
-Now there are no rows in `tutorials` table:
+Agora não há linhas na  `tutorials` table:
 ```testdb=# select * from tutorials;
  id | title | description | published | createdAt | updatedAt
 ----+-------+-------------+-----------+-----------+-----------
 ```
 
-For more detail, please visit:
+Para mais detalhes, visite [REFERENCIAS]
 > [Node.js PostgreSQL CRUD example with Express Rest APIs](https://www.bezkoder.com/node-express-sequelize-postgresql/)
 
 > [Node.js Express Pagination with PostgreSQL example](https://www.bezkoder.com/node-js-pagination-postgresql/)
 
-Security:
+[Segurança]:
 > [Node.js JWT Authentication & Authorization with PostgreSQL example](https://www.bezkoder.com/node-js-jwt-authentication-postgresql/)
 
-Associations:
+[Associações (ORM)]:
 > [Sequelize Associations: One-to-Many Relationship example](https://www.bezkoder.com/sequelize-associate-one-to-many/)
 
 > [Sequelize Associations: Many-to-Many Relationship example](https://www.bezkoder.com/sequelize-associate-many-to-many/)
@@ -139,19 +139,19 @@ Fullstack:
 
 > [Angular 16 + Node.js + Express + PostgreSQL example](https://www.bezkoder.com/angular-16-node-js-express-postgresql/)
 
-Integration (run back-end & front-end on same server/port):
+Integration (executar back-end e front-end no mesmo servidor/porta):
 > [Integrate React with Node.js Restful Services](https://www.bezkoder.com/integrate-react-express-same-server-port/)
 
 > [Integrate Angular with Node.js Restful Services](https://www.bezkoder.com/integrate-angular-12-node-js/)
 
 > [Integrate Vue with Node.js Restful Services](https://www.bezkoder.com/serve-vue-app-express/)
 
-## Project setup
+## Configuração do projeto
 ```
 npm install
 ```
 
-### Run
+### Rodar
 ```
 node server.js
 ```
